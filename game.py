@@ -204,7 +204,8 @@ class Partie:
             },
         }
         if self.phase == "profil":
-            etat["quiz"] = [{"q": q["q"], "choix": [c["t"] for c in q["choix"]]} for q in QUIZ]
+            etat["quiz"] = [{"q": q["q"], "choix": [c["t"] for c in q["choix"]], "icones": [c.get("icone", "") for c in q["choix"]]} for q in QUIZ]
+            etat["reactions_quiz"] = SCENARIO.get("reactions_quiz", {})
         if situation:
             etat["situation"] = situation
             etat["decompte"] = self.decompte()

@@ -24,6 +24,10 @@ const connexion = connecter(code, "animateur", "animateur", (message) => {
 });
 const envoyer = (action, extra = {}) => connexion.envoyer({ action, ...extra });
 
+const svgIcone = (d) => `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="${d}"/></svg>`;
+const ICONE_PLEIN = svgIcone("M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5");
+const ICONE_SORTIE = svgIcone("M9 4v5H4M15 4v5h5M9 20v-5H4M15 20v-5h5");
+$("plein-ecran").innerHTML = ICONE_PLEIN;
 $("plein-ecran").onclick = () => {
   if (document.fullscreenElement) document.exitFullscreen();
   else document.documentElement.requestFullscreen();
@@ -31,7 +35,9 @@ $("plein-ecran").onclick = () => {
 document.addEventListener("fullscreenchange", () => {
   const actif = Boolean(document.fullscreenElement);
   document.body.classList.toggle("mode-projection", actif);
-  $("plein-ecran").textContent = actif ? "Quitter le plein écran" : "Plein écran";
+  $("plein-ecran").innerHTML = actif ? ICONE_SORTIE : ICONE_PLEIN;
+  $("plein-ecran").title = actif ? "Quitter le plein écran" : "Plein écran";
+  $("plein-ecran").setAttribute("aria-label", $("plein-ecran").title);
   $("plein-ecran").setAttribute("aria-pressed", String(actif));
 });
 $("mode-manuel").onchange = () => { cleAffichee = null; afficher(); };
@@ -41,6 +47,7 @@ function afficher() {
   $("nb-joueurs").textContent = etat.nb_joueurs;
   $("parcours").innerHTML = parcoursHtml(etat);
   $("ecran").classList.toggle("fin", etat.phase === "fin");
+  $("ecran").dataset.phase = etat.phase;
   $("mini-qr").classList.toggle("cache", etat.phase === "accueil" || etat.phase === "fin");
   finMinuteur = etat.restant != null ? Date.now() + etat.restant * 1000 : null;
   afficherRobot();
@@ -66,7 +73,8 @@ function afficherRobot() {
   if (cle === cleRobot) return;
   cleRobot = cle;
   const effets = etat.phase === "resultat" && etat.resultat ? etat.resultat.effets : {};
-  $("gauche").innerHTML = `<div class="fiche robot-fiche">${robotSVG(humeurDe(etat.indicateurs.envie))}</div>
+  const robotGauche = etat.phase === "resultat" ? "" : `<div class="fiche robot-fiche">${robotSVG(humeurDe(etat.indicateurs.envie))}</div>`;
+  $("gauche").innerHTML = `${robotGauche}
     <div class="fiche pistes">${pistesHtml(etat.indicateurs, { deltas: effets, depuis: valeursPrecedentes })}</div>`;
   valeursPrecedentes = { ...etat.indicateurs };
   animerJetons();
@@ -147,7 +155,7 @@ function vueResultat() {
       <p class="bandeau-info">${messages[r.mode]}</p>
       <div class="titre-decision"><span class="lettre l${r.gagnant}">${LETTRES[r.gagnant]}</span>La salle a choisi : ${echapper(c.titre)}</div>
       <div style="margin-top:8px">${chipsEffets(r.effets)}</div>
-      <div class="consequence"><span class="titre">Ego-1 réagit…</span>« ${echapper(r.commentaire)} »</div>
+      ${reactionHtml(r, etat)}
       <div class="barre-actions"><button id="suivant">${derniere ? "Voir la fin d'Ego-1" : "Jour suivant"}</button></div>
     </div>`;
 }

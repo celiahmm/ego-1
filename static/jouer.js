@@ -13,6 +13,7 @@ if (!idJoueur) {
 let etat = null;
 let cleAffichee = null;
 let valeursPrecedentes = null;
+let verrou = false; // évite qu'un double appui réponde à la question suivante
 
 const connexion = connecter(code, "joueur", idJoueur, (message) => {
   if (message.type === "erreur") {
@@ -33,6 +34,7 @@ function afficher() {
   const cle = cleDe(etat);
   if (cle !== cleAffichee) {
     cleAffichee = cle;
+    verrou = false;
     const vues = { accueil: vueAccueil, profil: vueProfil, vote: vueVote, resultat: vueResultat, fin: vueFin };
     $("vue").innerHTML = vues[etat.phase]();
     window.scrollTo(0, 0);
@@ -40,6 +42,12 @@ function afficher() {
     document.querySelectorAll(".main .carte").forEach((b) => {
       b.onclick = () => {
         const choix = Number(b.dataset.choix);
+        if (b.dataset.action === "repondre") {
+          if (verrou) return;
+          verrou = true;
+          setTimeout(() => (verrou = false), 1500);
+          reagirTout(b);
+        }
         connexion.envoyer({ action: b.dataset.action, choix });
         if (b.dataset.action === "voter") {
           document.querySelectorAll(".main .carte").forEach((carte) => carte.setAttribute("aria-pressed", String(Number(carte.dataset.choix) === choix)));
@@ -79,18 +87,42 @@ function vueAccueil() {
     <p>Vous êtes connecté(e). Regardez l'écran : le test va bientôt commencer.</p></div>`;
 }
 
+// Humeur d'Ego-1 pendant le test : moyenne de l'impact « planète » des réponses déjà données.
+function humeurQuiz(p) {
+  if (!p.index) return "normal";
+  const m = p.planete / p.index;
+  return m >= 0 ? "happy" : m >= -2.5 ? "normal" : m >= -4.5 ? "worried" : "sad";
+}
+
+function coachHtml(p) {
+  const h = humeurQuiz(p);
+  const r = etat.reactions_quiz || {};
+  const lignes = (p.index ? r[h] : r.debut) || [];
+  const parole = lignes.length ? lignes[p.index % lignes.length] : "";
+  return `<div class="coach"><div class="coach-robot">${robotSVG(h, { anime: true })}</div><div class="bulle petite"><p>${echapper(parole)}</p></div></div>`;
+}
+
+// Réaction instantanée au toucher, avant même le retour du serveur.
+function reagirTout(bouton) {
+  bouton.classList.add("choisie");
+  const coach = document.querySelector(".coach");
+  if (!coach) return;
+  coach.querySelector(".coach-robot").innerHTML = robotSVG("surprised", { anime: true });
+  coach.querySelector(".bulle p").textContent = "Hmm… je note ça.";
+}
+
 function vueProfil() {
   const p = etat.mon_profil;
   if (p.fini) {
-    return `<div class="attente"><h2>Test terminé !</h2>${robot()}
+    return `${coachHtml(p)}<div class="attente"><h2>Test terminé !</h2>
       <p><span class="ruban">${echapper(p.type)}</span></p>
       <p>Regardez l'écran : Ego-1 se réveille bientôt.</p></div>`;
   }
   const q = etat.quiz[p.index];
-  return `<article class="evenement"><div class="bandeau"><span>Quel type d'égoïste es-tu ?</span><span>${p.index + 1}/${p.total}</span></div>
+  return `${coachHtml(p)}<article class="evenement"><div class="bandeau"><span>Quel type d'égoïste es-tu ?</span><span>${p.index + 1}/${p.total}</span></div>
       <div class="corps"><h2>${echapper(q.q)}</h2></div></article>
     <div class="main">${q.choix.map((t, i) => `<button class="carte c${i}" data-action="repondre" data-choix="${i}">
-      <div class="haut"><span class="lettre">${LETTRES[i]}</span></div>
+      <div class="haut"><span class="lettre">${LETTRES[i]}</span><span class="emoji" aria-hidden="true">${(q.icones || [])[i] || "🤖"}</span></div>
       <div><h3>${echapper(t)}</h3></div></button>`).join("")}</div>`;
 }
 
@@ -118,7 +150,7 @@ function vueResultat() {
       <div class="titre-decision"><span class="lettre">${LETTRES[r.gagnant]}</span>${echapper(c.titre)}</div>
       <p class="perso">${perso}</p>
       <div>${chipsEffets(r.effets)}</div>
-      <div class="consequence"><span class="titre">Ego-1 réagit…</span>« ${echapper(r.commentaire)} »</div>
+      ${reactionHtml(r, etat)}
     </div>
     ${maVille(depuis)}
     <p class="attente">Regardez l'écran pour la suite…</p>`;

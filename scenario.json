@@ -21,17 +21,20 @@
         {
           "t": "Prends la voiture (même seule)",
           "egoisme": 2,
-          "planete": -8
+          "planete": -8,
+          "icone": "🚗"
         },
         {
           "t": "Prends les transports ou le vélo",
           "egoisme": -1,
-          "planete": 2
+          "planete": 2,
+          "icone": "🚲"
         },
         {
           "t": "Télétravaille quand tu peux, sinon voiture",
           "egoisme": 1,
-          "planete": -3
+          "planete": -3,
+          "icone": "🏠"
         }
       ]
     },
@@ -41,17 +44,20 @@
         {
           "t": "Tu l’achètes, c’est une affaire",
           "egoisme": 2,
-          "planete": -6
+          "planete": -6,
+          "icone": "🛍️"
         },
         {
           "t": "Tu passes ton chemin",
           "egoisme": -1,
-          "planete": 3
+          "planete": 3,
+          "icone": "✋"
         },
         {
           "t": "Tu l’achètes « juste pour cette fois »",
           "egoisme": 1,
-          "planete": -4
+          "planete": -4,
+          "icone": "🤷"
         }
       ]
     },
@@ -61,17 +67,20 @@
         {
           "t": "Tu laisses la clim / le chauffage allumé",
           "egoisme": 2,
-          "planete": -7
+          "planete": -7,
+          "icone": "❄️"
         },
         {
           "t": "Tu éteins tout",
           "egoisme": -1,
-          "planete": 2
+          "planete": 2,
+          "icone": "🔌"
         },
         {
           "t": "Tu baisses un peu mais tu laisses",
           "egoisme": 1,
-          "planete": -3
+          "planete": -3,
+          "icone": "🌡️"
         }
       ]
     },
@@ -81,17 +90,20 @@
         {
           "t": "Oui, on n’a qu’une vie",
           "egoisme": 2,
-          "planete": -10
+          "planete": -10,
+          "icone": "✈️"
         },
         {
           "t": "Non, on trouve un truc en train",
           "egoisme": -1,
-          "planete": 4
+          "planete": 4,
+          "icone": "🚆"
         },
         {
           "t": "Tu hésites… puis tu y vas",
           "egoisme": 1,
-          "planete": -6
+          "planete": -6,
+          "icone": "🤔"
         }
       ]
     },
@@ -101,17 +113,20 @@
         {
           "t": "Tout dans le même sac, tu es pressé",
           "egoisme": 2,
-          "planete": -5
+          "planete": -5,
+          "icone": "🗑️"
         },
         {
           "t": "Tu tries correctement",
           "egoisme": -1,
-          "planete": 3
+          "planete": 3,
+          "icone": "♻️"
         },
         {
           "t": "Tu tries « quand tu y penses »",
           "egoisme": 1,
-          "planete": -1
+          "planete": -1,
+          "icone": "🤷"
         }
       ]
     },
@@ -121,17 +136,20 @@
         {
           "t": "Gobelet jetable, tu es pressé",
           "egoisme": 2,
-          "planete": -4
+          "planete": -4,
+          "icone": "🥤"
         },
         {
           "t": "Tasse réutilisable ou tu restes sur place",
           "egoisme": -1,
-          "planete": 2
+          "planete": 2,
+          "icone": "☕"
         },
         {
           "t": "Tu prends le jetable « juste cette fois »",
           "egoisme": 1,
-          "planete": -2
+          "planete": -2,
+          "icone": "😬"
         }
       ]
     },
@@ -141,17 +159,20 @@
         {
           "t": "Tu changes pour le nouveau modèle",
           "egoisme": 2,
-          "planete": -8
+          "planete": -8,
+          "icone": "📱"
         },
         {
           "t": "Tu le gardes encore 2-3 ans",
           "egoisme": -1,
-          "planete": 4
+          "planete": 4,
+          "icone": "🛠️"
         },
         {
           "t": "Tu changes parce que la batterie faiblit",
           "egoisme": 1,
-          "planete": -5
+          "planete": -5,
+          "icone": "🪫"
         }
       ]
     },
@@ -161,17 +182,20 @@
         {
           "t": "Oui, un bon steak",
           "egoisme": 2,
-          "planete": -7
+          "planete": -7,
+          "icone": "🥩"
         },
         {
           "t": "Non, légumes ou alternative",
           "egoisme": -1,
-          "planete": 3
+          "planete": 3,
+          "icone": "🥗"
         },
         {
           "t": "Un peu, mais pas tous les jours",
           "egoisme": 1,
-          "planete": -3
+          "planete": -3,
+          "icone": "⚖️"
         }
       ]
     },
@@ -181,17 +205,20 @@
         {
           "t": "Tu la laisses allumée",
           "egoisme": 2,
-          "planete": -3
+          "planete": -3,
+          "icone": "💡"
         },
         {
           "t": "Tu l’éteins systématiquement",
           "egoisme": -1,
-          "planete": 2
+          "planete": 2,
+          "icone": "🌑"
         },
         {
           "t": "Tu y penses parfois",
           "egoisme": 1,
-          "planete": -1
+          "planete": -1,
+          "icone": "🤔"
         }
       ]
     },
@@ -201,17 +228,20 @@
         {
           "t": "Tu jettes tout sans trier",
           "egoisme": 2,
-          "planete": -4
+          "planete": -4,
+          "icone": "🗑️"
         },
         {
           "t": "Tu tries et tu réutilises ce que tu peux",
           "egoisme": -1,
-          "planete": 2
+          "planete": 2,
+          "icone": "📦"
         },
         {
           "t": "Tu râles mais tu jettes quand même",
           "egoisme": 1,
-          "planete": -2
+          "planete": -2,
+          "icone": "😤"
         }
       ]
     }
@@ -782,5 +812,30 @@
       "titre": "Il continue, fatigué",
       "texte": "Ego-1 tient encore. Mais il a noté chaque choix. « On verra combien de temps je tiens. Toi, tu as déjà ta réponse. »"
     }
+  },
+  "reactions_quiz": {
+    "debut": [
+      "Salut, humain. Dis-moi tout. Enfin… presque tout."
+    ],
+    "happy": [
+      "Oh ? Tu fais des efforts ? Je ne suis pas habitué.",
+      "Continue, je commence presque à y croire.",
+      "Là, je te trouve presque sympa."
+    ],
+    "normal": [
+      "Hmm. Ni bon, ni mauvais. Très humain.",
+      "Je note. Je note tout.",
+      "Intéressant… je garde mon avis pour moi."
+    ],
+    "worried": [
+      "Aïe. Mon petit circuit s’inquiète.",
+      "Je sens la planète qui tousse un peu.",
+      "On en est déjà là ? Soit."
+    ],
+    "sad": [
+      "Je ne dis rien. Je soupire intérieurement.",
+      "Ma batterie vient de perdre 10 %.",
+      "Tu sais que je vois tout, hein ?"
+    ]
   }
 }

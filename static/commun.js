@@ -105,3 +105,10 @@ function typesHtml(types) {
   const legende = types.filter((t) => t.n).map((t) => `<span><span class="pastille" style="background:${t.couleur}"></span>${echapper(t.nom)} (${t.n})</span>`).join("");
   return `<div class="repartition">${barre}</div><div class="legende">${legende}</div>`;
 }
+
+// Réaction d'Ego-1 après un vote : le robot (humeur liée au résultat) + une bulle de dialogue.
+function reactionHtml(r, etat) {
+  const humeur = humeurReaction(etat.indicateurs.envie, (r.effets || {}).envie || 0);
+  return `<div class="reaction"><div class="reaction-robot">${robotSVG(humeur, { anime: true })}</div>
+    <div class="bulle"><span class="titre">Ego-1 réagit…</span><p>« ${echapper(r.commentaire)} »</p></div></div>`;
+}

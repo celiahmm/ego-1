@@ -171,3 +171,5 @@ async def websocket(ws: WebSocket, code: str, role: str = "joueur", id: str = ""
         else:
             s["joueurs"].get(id_joueur, set()).discard(ws)
         await diffuser(partie)
+
+app.mount("/", StaticFiles(directory=STATIC), name="site")
