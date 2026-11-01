@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>EGO-1 — Le petit robot qui en a marre</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <div class="accueil">
+    <h1>EGO<b>-1</b></h1>
+    <p class="intro">Un petit robot chargé de sauver la planète. Vous, vous vivez votre vie. On verra bien. Passez le test sur votre téléphone, puis décidez ensemble de ses 12 jours : la majorité l'emporte.</p>
+    <div id="plateau"></div>
+    <div class="choix-roles">
+      <div class="fiche">
+        <h2>Je joue</h2>
+        <p>Scannez le QR code affiché à l'écran ou entrez le code de la partie. Pas de compte, pas d'infos personnelles.</p>
+        <form id="rejoindre">
+          <input id="code" maxlength="4" placeholder="CODE" autocomplete="off" required>
+          <button>Go !</button>
+        </form>
+        <p id="erreur" class="erreur"></p>
+      </div>
+      <div class="fiche">
+        <h2>J'anime</h2>
+        <p>Créez une partie et projetez l'écran dans la salle. Aucun compte nécessaire, et plusieurs parties peuvent tourner en même temps.</p>
+        <button id="creer">Créer une partie</button>
+      </div>
+    </div>
+  </div>
+  <script src="/static/robot.js"></script>
+  <script src="/static/config.js"></script>
+  <script>
+    const api = (window.EGO1_CONFIG?.backendUrl || "").replace(/\/$/, "");
+    document.getElementById("plateau").innerHTML = robotSVG("normal");
+    document.getElementById("creer").onclick = async () => {
+      const r = await fetch(`${api}/api/parties`, { method: "POST" });
+      const { code } = await r.json();
+      location.href = `/animateur?code=${code}`;
+    };
+    document.getElementById("rejoindre").onsubmit = async (e) => {
+      e.preventDefault();
+      const code = document.getElementById("code").value.trim().toUpperCase();
+      const r = await fetch(`${api}/api/parties/${encodeURIComponent(code)}`);
+      if (r.ok) location.href = `/jouer?code=${code}`;
+      else document.getElementById("erreur").textContent = "Partie introuvable : vérifiez le code affiché à l'écran.";
+    };
+  </script>
+</body>
+</html>

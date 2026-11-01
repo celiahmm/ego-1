@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>EGO-1 · Animateur</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <header class="entete">
+    <div class="logo titre">EGO-<b>1</b></div>
+    <div class="parcours" id="parcours"></div>
+    <div class="salle">
+      Partie<div class="titre" id="code"></div>
+      <span id="nb-joueurs">0</span> citoyen(ne)s connecté(e)s
+      <div class="outils">
+        <button class="petit secondaire" id="plein-ecran" type="button" aria-pressed="false">Plein écran</button>
+        <label><input type="checkbox" id="mode-manuel"> vote à main levée</label>
+      </div>
+    </div>
+  </header>
+  <main class="ecran" id="ecran">
+    <section class="gauche" id="gauche"></section>
+    <section id="scene"></section>
+  </main>
+  <div class="mini-qr cache" id="mini-qr"><img alt="QR code"><span></span></div>
+  <script src="/static/config.js"></script>
+  <script src="/static/robot.js"></script>
+  <script src="/static/commun.js"></script>
+  <script src="/static/animateur.js"></script>
+</body>
+</html>

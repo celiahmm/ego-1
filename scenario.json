@@ -1,0 +1,786 @@
+{
+  "robot": {
+    "nom": "EGO-1",
+    "slogan": "Le petit robot qui en a marre",
+    "presentation": "Un petit robot chargé de sauver la planète. Toi, tu vis ta vie. On verra bien."
+  },
+  "indicateurs": {
+    "planete": {
+      "nom": "Planète",
+      "depart": 70
+    },
+    "envie": {
+      "nom": "Envie d’Ego-1",
+      "depart": 80
+    }
+  },
+  "quiz": [
+    {
+      "q": "Pour aller au boulot à 8 km, tu…",
+      "choix": [
+        {
+          "t": "Prends la voiture (même seule)",
+          "egoisme": 2,
+          "planete": -8
+        },
+        {
+          "t": "Prends les transports ou le vélo",
+          "egoisme": -1,
+          "planete": 2
+        },
+        {
+          "t": "Télétravaille quand tu peux, sinon voiture",
+          "egoisme": 1,
+          "planete": -3
+        }
+      ]
+    },
+    {
+      "q": "Un t-shirt à 9 € en promo te fait de l’œil…",
+      "choix": [
+        {
+          "t": "Tu l’achètes, c’est une affaire",
+          "egoisme": 2,
+          "planete": -6
+        },
+        {
+          "t": "Tu passes ton chemin",
+          "egoisme": -1,
+          "planete": 3
+        },
+        {
+          "t": "Tu l’achètes « juste pour cette fois »",
+          "egoisme": 1,
+          "planete": -4
+        }
+      ]
+    },
+    {
+      "q": "Tu sors de chez toi 25 minutes…",
+      "choix": [
+        {
+          "t": "Tu laisses la clim / le chauffage allumé",
+          "egoisme": 2,
+          "planete": -7
+        },
+        {
+          "t": "Tu éteins tout",
+          "egoisme": -1,
+          "planete": 2
+        },
+        {
+          "t": "Tu baisses un peu mais tu laisses",
+          "egoisme": 1,
+          "planete": -3
+        }
+      ]
+    },
+    {
+      "q": "Un ami propose un week-end en avion low-cost.",
+      "choix": [
+        {
+          "t": "Oui, on n’a qu’une vie",
+          "egoisme": 2,
+          "planete": -10
+        },
+        {
+          "t": "Non, on trouve un truc en train",
+          "egoisme": -1,
+          "planete": 4
+        },
+        {
+          "t": "Tu hésites… puis tu y vas",
+          "egoisme": 1,
+          "planete": -6
+        }
+      ]
+    },
+    {
+      "q": "Tes poubelles :",
+      "choix": [
+        {
+          "t": "Tout dans le même sac, tu es pressé",
+          "egoisme": 2,
+          "planete": -5
+        },
+        {
+          "t": "Tu tries correctement",
+          "egoisme": -1,
+          "planete": 3
+        },
+        {
+          "t": "Tu tries « quand tu y penses »",
+          "egoisme": 1,
+          "planete": -1
+        }
+      ]
+    },
+    {
+      "q": "Tu commandes un café en terrasse…",
+      "choix": [
+        {
+          "t": "Gobelet jetable, tu es pressé",
+          "egoisme": 2,
+          "planete": -4
+        },
+        {
+          "t": "Tasse réutilisable ou tu restes sur place",
+          "egoisme": -1,
+          "planete": 2
+        },
+        {
+          "t": "Tu prends le jetable « juste cette fois »",
+          "egoisme": 1,
+          "planete": -2
+        }
+      ]
+    },
+    {
+      "q": "Ton téléphone a 3 ans. Il marche encore.",
+      "choix": [
+        {
+          "t": "Tu changes pour le nouveau modèle",
+          "egoisme": 2,
+          "planete": -8
+        },
+        {
+          "t": "Tu le gardes encore 2-3 ans",
+          "egoisme": -1,
+          "planete": 4
+        },
+        {
+          "t": "Tu changes parce que la batterie faiblit",
+          "egoisme": 1,
+          "planete": -5
+        }
+      ]
+    },
+    {
+      "q": "Tu fais les courses. Viande rouge ce soir ?",
+      "choix": [
+        {
+          "t": "Oui, un bon steak",
+          "egoisme": 2,
+          "planete": -7
+        },
+        {
+          "t": "Non, légumes ou alternative",
+          "egoisme": -1,
+          "planete": 3
+        },
+        {
+          "t": "Un peu, mais pas tous les jours",
+          "egoisme": 1,
+          "planete": -3
+        }
+      ]
+    },
+    {
+      "q": "La lumière de la pièce où tu n’es pas…",
+      "choix": [
+        {
+          "t": "Tu la laisses allumée",
+          "egoisme": 2,
+          "planete": -3
+        },
+        {
+          "t": "Tu l’éteins systématiquement",
+          "egoisme": -1,
+          "planete": 2
+        },
+        {
+          "t": "Tu y penses parfois",
+          "egoisme": 1,
+          "planete": -1
+        }
+      ]
+    },
+    {
+      "q": "Un colis arrive. Emballage plastique partout.",
+      "choix": [
+        {
+          "t": "Tu jettes tout sans trier",
+          "egoisme": 2,
+          "planete": -4
+        },
+        {
+          "t": "Tu tries et tu réutilises ce que tu peux",
+          "egoisme": -1,
+          "planete": 2
+        },
+        {
+          "t": "Tu râles mais tu jettes quand même",
+          "egoisme": 1,
+          "planete": -2
+        }
+      ]
+    }
+  ],
+  "types": [
+    {
+      "seuil": 12,
+      "nom": "Égoïste Assumé",
+      "couleur": "#ef4343"
+    },
+    {
+      "seuil": 6,
+      "nom": "Égoïste Confort",
+      "couleur": "#ff8a3d"
+    },
+    {
+      "seuil": 0,
+      "nom": "Égoïste Social",
+      "couleur": "#ffbe2e"
+    },
+    {
+      "seuil": -6,
+      "nom": "Égoïste Vertueux",
+      "couleur": "#22b46a"
+    },
+    {
+      "seuil": -1000,
+      "nom": "Presque pas égoïste (rare)",
+      "couleur": "#3d7bf5"
+    }
+  ],
+  "jours": [
+    {
+      "jour": 1,
+      "label": "Jour 1",
+      "titre": "Notification : « Compense ton empreinte pour 3,99 € »",
+      "choix": [
+        {
+          "titre": "Tu cliques et tu paies",
+          "icone": "💳",
+          "effets": {
+            "planete": 4,
+            "envie": 3
+          },
+          "commentaires": [
+            "Oh. Merci. Ça me donne un petit coup de boost.",
+            "3,99 € pour la planète. On est sauvés."
+          ]
+        },
+        {
+          "titre": "Tu ignores",
+          "icone": "🙈",
+          "effets": {
+            "planete": -2,
+            "envie": -4
+          },
+          "commentaires": [
+            "… D’accord.",
+            "Classique. Je note dans mon petit carnet de désespoir."
+          ]
+        },
+        {
+          "titre": "Tu te dis que c’est du greenwashing et tu scrolles",
+          "icone": "📱",
+          "effets": {
+            "planete": -1,
+            "envie": -2
+          },
+          "commentaires": [
+            "Au moins tu es honnête.",
+            "Greenwashing, oui. Mais toi tu fais quoi exactement ?"
+          ]
+        }
+      ]
+    },
+    {
+      "jour": 2,
+      "label": "Jour 2",
+      "titre": "Le frigo est vide. Livraison ou courses ?",
+      "choix": [
+        {
+          "titre": "Livraison express (3 emballages)",
+          "icone": "📦",
+          "effets": {
+            "planete": -6,
+            "envie": -5
+          },
+          "commentaires": [
+            "Les cartons… encore les cartons.",
+            "Super. Encore de la pollution plastique pour mon petit cœur de robot."
+          ]
+        },
+        {
+          "titre": "Tu sors faire les courses à pied / vélo",
+          "icone": "🛒",
+          "effets": {
+            "planete": 3,
+            "envie": 4
+          },
+          "commentaires": [
+            "Merci. Ça change un peu.",
+            "Enfin un humain qui utilise ses jambes. Je vais peut-être survivre."
+          ]
+        },
+        {
+          "titre": "Tu commandes « local » mais en voiture",
+          "icone": "🚗",
+          "effets": {
+            "planete": -2,
+            "envie": -1
+          },
+          "commentaires": [
+            "C’est déjà ça, j’imagine.",
+            "Local… en voiture. La logique humaine dans toute sa splendeur."
+          ]
+        }
+      ]
+    },
+    {
+      "jour": 3,
+      "label": "Jour 3",
+      "titre": "Soirée. Streaming ou sortie ?",
+      "choix": [
+        {
+          "titre": "Netflix toute la nuit, clim à fond",
+          "icone": "📺",
+          "effets": {
+            "planete": -5,
+            "envie": -4
+          },
+          "commentaires": [
+            "Je sens la chaleur d’ici.",
+            "Clim + streaming. Tu chauffes la planète et moi en même temps. Bravo."
+          ]
+        },
+        {
+          "titre": "Tu sors marcher un peu",
+          "icone": "🚶",
+          "effets": {
+            "planete": 2,
+            "envie": 3
+          },
+          "commentaires": [
+            "L’air frais… rare.",
+            "Marcher. Concept révolutionnaire en 2026."
+          ]
+        },
+        {
+          "titre": "Tu regardes un docu sur le climat en culpabilisant",
+          "icone": "😔",
+          "effets": {
+            "planete": 1,
+            "envie": 1
+          },
+          "commentaires": [
+            "Au moins tu regardes.",
+            "Culpabiliser sans rien changer. Mon activité préférée chez les humains."
+          ]
+        }
+      ]
+    },
+    {
+      "jour": 4,
+      "label": "Jour 4",
+      "titre": "Soldes. Un pull à -70 %.",
+      "choix": [
+        {
+          "titre": "Tu craques",
+          "icone": "🛍️",
+          "effets": {
+            "planete": -7,
+            "envie": -6
+          },
+          "commentaires": [
+            "Encore un. Je note.",
+            "70 % de réduction sur ta conscience. Affaire du siècle."
+          ]
+        },
+        {
+          "titre": "Tu résistes",
+          "icone": "✋",
+          "effets": {
+            "planete": 4,
+            "envie": 5
+          },
+          "commentaires": [
+            "… Merci. Vraiment.",
+            "Tu as résisté. Je vais peut-être pas m’éteindre aujourd’hui."
+          ]
+        },
+        {
+          "titre": "Tu l’achètes d’occasion en ligne",
+          "icone": "♻️",
+          "effets": {
+            "planete": -1,
+            "envie": 1
+          },
+          "commentaires": [
+            "Mieux que neuf, je suppose.",
+            "D’occasion. Le minimum syndical de l’égoïste éclairé."
+          ]
+        }
+      ]
+    },
+    {
+      "jour": 5,
+      "label": "Jour 5",
+      "titre": "Un collègue propose covoiturage ou chacun sa voiture.",
+      "choix": [
+        {
+          "titre": "Chacun sa voiture, c’est plus simple",
+          "icone": "🚗",
+          "effets": {
+            "planete": -6,
+            "envie": -5
+          },
+          "commentaires": [
+            "Simple pour toi.",
+            "Simple. Comme la destruction de la planète, finalement."
+          ]
+        },
+        {
+          "titre": "Tu proposes le covoiturage",
+          "icone": "🤝",
+          "effets": {
+            "planete": 5,
+            "envie": 6
+          },
+          "commentaires": [
+            "Ça me redonne un peu d’énergie.",
+            "Covoiturage. Je vais peut-être pas te détester complètement."
+          ]
+        },
+        {
+          "titre": "Tu prends le bus en râlant",
+          "icone": "🚌",
+          "effets": {
+            "planete": 2,
+            "envie": 2
+          },
+          "commentaires": [
+            "Râler mais y aller… acceptable.",
+            "Tu râles. Au moins tu n’es pas en voiture. Petit miracle."
+          ]
+        }
+      ]
+    },
+    {
+      "jour": 6,
+      "label": "Jour 6",
+      "titre": "Tu reçois une pétition climat.",
+      "choix": [
+        {
+          "titre": "Tu signes et tu partages",
+          "icone": "📣",
+          "effets": {
+            "planete": 6,
+            "envie": 7
+          },
+          "commentaires": [
+            "Peut-être que ça sert à quelque chose.",
+            "Signer + partager. Le niveau maximum d’effort humain."
+          ]
+        },
+        {
+          "titre": "Tu signes sans partager",
+          "icone": "✍️",
+          "effets": {
+            "planete": 3,
+            "envie": 3
+          },
+          "commentaires": [
+            "C’est déjà quelque chose.",
+            "Signer en silence. Comme d’habitude."
+          ]
+        },
+        {
+          "titre": "Tu passes, tu as déjà assez donné",
+          "icone": "🤷",
+          "effets": {
+            "planete": -3,
+            "envie": -8
+          },
+          "commentaires": [
+            "Assez donné… je vois.",
+            "Assez donné. Moi aussi j’en ai assez. Vraiment."
+          ]
+        }
+      ]
+    },
+    {
+      "jour": 7,
+      "label": "Jour 7",
+      "titre": "Douche du matin.",
+      "choix": [
+        {
+          "titre": "Longue douche chaude, 15 minutes",
+          "icone": "🚿",
+          "effets": {
+            "planete": -5,
+            "envie": -4
+          },
+          "commentaires": [
+            "L’eau chaude… encore.",
+            "15 minutes. Tu sais que la planète a soif aussi ?"
+          ]
+        },
+        {
+          "titre": "Douche courte, 5 minutes",
+          "icone": "⏱️",
+          "effets": {
+            "planete": 3,
+            "envie": 4
+          },
+          "commentaires": [
+            "Court et efficace. Merci.",
+            "Cinq minutes. Presque un miracle."
+          ]
+        },
+        {
+          "titre": "Tu laisses couler en te brossant les dents",
+          "icone": "🪥",
+          "effets": {
+            "planete": -3,
+            "envie": -3
+          },
+          "commentaires": [
+            "Classique.",
+            "L’eau qui coule pendant que tu te brosses les dents. Poétique."
+          ]
+        }
+      ]
+    },
+    {
+      "jour": 8,
+      "label": "Jour 8",
+      "titre": "Un nouveau gadget tech te tente.",
+      "choix": [
+        {
+          "titre": "Tu l’achètes, c’est le futur",
+          "icone": "📱",
+          "effets": {
+            "planete": -8,
+            "envie": -6
+          },
+          "commentaires": [
+            "Encore un gadget. Super.",
+            "Le futur. Celui où je m’éteins plus vite."
+          ]
+        },
+        {
+          "titre": "Tu résistes, tu as déjà assez",
+          "icone": "🧘",
+          "effets": {
+            "planete": 4,
+            "envie": 5
+          },
+          "commentaires": [
+            "Merci de ne pas ajouter un déchet de plus.",
+            "Résister à un gadget. Je note ça dans mon journal des miracles."
+          ]
+        },
+        {
+          "titre": "Tu l’achètes d’occasion",
+          "icone": "🔁",
+          "effets": {
+            "planete": -2,
+            "envie": 1
+          },
+          "commentaires": [
+            "D’occasion… mieux que neuf.",
+            "D’occasion. Le compromis préféré des égoïstes fatigués."
+          ]
+        }
+      ]
+    },
+    {
+      "jour": 9,
+      "label": "Jour 9",
+      "titre": "Déjeuner au bureau.",
+      "choix": [
+        {
+          "titre": "Livraison + emballage plastique",
+          "icone": "🥡",
+          "effets": {
+            "planete": -5,
+            "envie": -4
+          },
+          "commentaires": [
+            "Encore du plastique.",
+            "Livraison au bureau. Le summum de l’effort zéro."
+          ]
+        },
+        {
+          "titre": "Tu apportes ta gamelle",
+          "icone": "🍱",
+          "effets": {
+            "planete": 4,
+            "envie": 5
+          },
+          "commentaires": [
+            "Gamelle. Ça me redonne un peu d’espoir.",
+            "Une gamelle. Presque révolutionnaire."
+          ]
+        },
+        {
+          "titre": "Tu sors acheter un sandwich emballé",
+          "icone": "🥪",
+          "effets": {
+            "planete": -2,
+            "envie": -1
+          },
+          "commentaires": [
+            "Sandwich emballé. Classique.",
+            "Au moins tu sors. C’est déjà ça."
+          ]
+        }
+      ]
+    },
+    {
+      "jour": 10,
+      "label": "Jour 10",
+      "titre": "Week-end. Road trip ou staycation ?",
+      "choix": [
+        {
+          "titre": "Road trip en voiture, 400 km",
+          "icone": "🚙",
+          "effets": {
+            "planete": -9,
+            "envie": -7
+          },
+          "commentaires": [
+            "400 km. Je sens déjà la chaleur.",
+            "Road trip. Parce que rester chez soi c’est trop simple."
+          ]
+        },
+        {
+          "titre": "Tu restes dans le coin, balades locales",
+          "icone": "🌳",
+          "effets": {
+            "planete": 5,
+            "envie": 6
+          },
+          "commentaires": [
+            "Local. Merci.",
+            "Balades locales. Je vais peut-être tenir encore un peu."
+          ]
+        },
+        {
+          "titre": "Petit trajet en train",
+          "icone": "🚆",
+          "effets": {
+            "planete": 2,
+            "envie": 2
+          },
+          "commentaires": [
+            "Train. Acceptable.",
+            "Train. Mieux que la voiture. On progresse."
+          ]
+        }
+      ]
+    },
+    {
+      "jour": 11,
+      "label": "Jour 11",
+      "titre": "Tu vois une pub pour un SUV électrique.",
+      "choix": [
+        {
+          "titre": "Tu te dis que c’est écolo et tu y penses",
+          "icone": "🔌",
+          "effets": {
+            "planete": -4,
+            "envie": -3
+          },
+          "commentaires": [
+            "SUV électrique. L’oxymore préféré des humains.",
+            "Écolo… en 2 tonnes. Logique."
+          ]
+        },
+        {
+          "titre": "Tu rigoles et tu passes",
+          "icone": "😂",
+          "effets": {
+            "planete": 2,
+            "envie": 3
+          },
+          "commentaires": [
+            "Au moins tu n’es pas dupe.",
+            "Tu passes. Sage."
+          ]
+        },
+        {
+          "titre": "Tu te dis que c’est mieux qu’un thermique",
+          "icone": "⚖️",
+          "effets": {
+            "planete": -1,
+            "envie": -1
+          },
+          "commentaires": [
+            "Mieux. Relativement.",
+            "Relativement mieux. Comme d’habitude."
+          ]
+        }
+      ]
+    },
+    {
+      "jour": 12,
+      "label": "Jour 12",
+      "titre": "Dernier jour. Bilan personnel.",
+      "choix": [
+        {
+          "titre": "Tu te dis que tu fais déjà beaucoup",
+          "icone": "😌",
+          "effets": {
+            "planete": -2,
+            "envie": -5
+          },
+          "commentaires": [
+            "Beaucoup. Par rapport à quoi ?",
+            "Tu fais déjà beaucoup. Moi aussi, avant."
+          ]
+        },
+        {
+          "titre": "Tu notes 2-3 trucs à améliorer",
+          "icone": "📝",
+          "effets": {
+            "planete": 4,
+            "envie": 6
+          },
+          "commentaires": [
+            "Améliorer. Le mot magique.",
+            "Noter des trucs. On verra si tu les fais."
+          ]
+        },
+        {
+          "titre": "Tu scrolles et tu oublies",
+          "icone": "📲",
+          "effets": {
+            "planete": -3,
+            "envie": -6
+          },
+          "commentaires": [
+            "Oublier. Ma spécialité préférée chez vous.",
+            "Scroller. La solution universelle."
+          ]
+        }
+      ]
+    }
+  ],
+  "fins": {
+    "eteint": {
+      "humeur": "dead",
+      "titre": "Ego-1 s’est éteint",
+      "texte": "Il a perdu goût à son existence. Derniers mots : « J’ai tout donné. Vous, vous avez juste vécu. C’est déjà beaucoup. »"
+    },
+    "survit": {
+      "humeur": "sad",
+      "titre": "Il survit… à peine",
+      "texte": "Ego-1 ne parle plus. Il fait le strict minimum. Il a compris que ça ne servait plus à grand-chose. « Continuez sans moi. »"
+    },
+    "lueur": {
+      "humeur": "normal",
+      "titre": "Une lueur d’espoir",
+      "texte": "« Peut-être que demain sera différent. Tu comptes continuer, ou c’était juste pour le jeu ? »"
+    },
+    "fatigue": {
+      "humeur": "sad",
+      "titre": "Il continue, fatigué",
+      "texte": "Ego-1 tient encore. Mais il a noté chaque choix. « On verra combien de temps je tiens. Toi, tu as déjà ta réponse. »"
+    }
+  }
+}
