@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>EGO-1 — Le petit robot qui en a marre</title>
-  <link rel="stylesheet" href="/static/style.css">
+  <link rel="stylesheet" href="/style.css">
 </head>
 <body>
   <div class="accueil">
@@ -28,8 +28,8 @@
       </div>
     </div>
   </div>
-  <script src="/static/robot.js"></script>
-  <script src="/static/config.js"></script>
+  <script src="/robot.js"></script>
+  <script src="/config.js"></script>
   <script>
     const api = (window.EGO1_CONFIG?.backendUrl || "").replace(/\/$/, "");
     document.getElementById("plateau").innerHTML = robotSVG("normal");
