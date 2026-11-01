@@ -1,6 +1,6 @@
-@font-face { font-family: "Atkinson"; font-display: swap; src: url(/static/polices/atkinson-hyperlegible-latin-400-normal.woff2) format("woff2"); }
-@font-face { font-family: "Atkinson"; font-weight: 700; font-display: swap; src: url(/static/polices/atkinson-hyperlegible-latin-700-normal.woff2) format("woff2"); }
-@font-face { font-family: "Lilita"; font-display: swap; src: url(/static/polices/lilita-one-latin-400-normal.woff2) format("woff2"); }
+@font-face { font-family: "Atkinson"; font-display: swap; src: url(/polices/atkinson-hyperlegible-latin-400-normal.woff2) format("woff2"); }
+@font-face { font-family: "Atkinson"; font-weight: 700; font-display: swap; src: url(/polices/atkinson-hyperlegible-latin-700-normal.woff2) format("woff2"); }
+@font-face { font-family: "Lilita"; font-display: swap; src: url(/polices/lilita-one-latin-400-normal.woff2) format("woff2"); }
 
 :root {
   --encre: #1c1f3a; --doux: #4a4e6a; --carte: #fffaf0; --jaune: #ffd23f; --orange: #ff8a3d;
